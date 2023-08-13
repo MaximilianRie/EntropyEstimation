@@ -103,7 +103,7 @@ FEATURES_RHO = [4, 2]
 # number of heads for GAT model
 NUM_HEADS = 1
 # number of epochs to train
-NUM_EPOCHS = 10
+NUM_EPOCHS = 4000
 # learning rate
 LEARNING_RATE = 0.0005
 # size of minibatches to pass into the network at once
