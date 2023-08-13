@@ -20,9 +20,9 @@ import sys
 
 # metadata and location of datafiles
 # DIR should be project directory
-DIR = "/p/project/neuralqmb/maximilian/Bachelorarbeit/"
-NAME = "Grid/Ising-8-spins--GRID--5-states-50000-samples"
-INFO = "-with_dots-batchsize1000-GAMMAMAX0.5"
+DIR = "/p/project/neuralqmb/maximilian/EntropyEstimation/"
+NAME = "Ising-10-spins--TIME--100-states-50000-samples"
+INFO = "-MCMC-batchsize1000uni+lin-Renyi-from0.0-to5.0"
 VERSION = ""
 
 # RNG keys for training
@@ -34,13 +34,13 @@ except IndexError:
     KEY = random.PRNGKey(2207)
 key_init, key_train, key_bootstrap = random.split(KEY, 3)
 FILES = [
-    "Ising/data/Ising-8-spins--TIME--5-states-50000-samples-MCMC-batchsize1000-GRID-with_dots-GAMMAMAX0.5"
+    "data/Ising-10-spins--TIME--100-states-50000-samples-MCMC-batchsize1000uni+lin-Renyi-from0.0-to5.0"
 ]
 
 
 # all data gets padded to MAX_SYSTEM_SIZE in order to be stored in the same array
 # this is relevant if the network is trained on different system sizes
-MAX_SYSTEM_SIZE = 8
+MAX_SYSTEM_SIZE = 10
 
 
 ################################
@@ -103,7 +103,7 @@ FEATURES_RHO = [4, 2]
 # number of heads for GAT model
 NUM_HEADS = 1
 # number of epochs to train
-NUM_EPOCHS = 4000
+NUM_EPOCHS = 10
 # learning rate
 LEARNING_RATE = 0.0005
 # size of minibatches to pass into the network at once

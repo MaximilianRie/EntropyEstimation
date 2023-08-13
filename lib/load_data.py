@@ -85,7 +85,6 @@ def load_results(DIR, NAME, INFO, VERSION, data_indices, val_data_indices,
         FEATURES_RHO = f["FEATURES_RHO"][()]
         FILES = f["FILES"][()].astype("str")
         MAX_SYSTEM_SIZE = f["MAX_SYSTEM_SIZE"][()]
-        WITH_N = f["WITH_N"][()]
         NUM_HEADS = f["NUM_HEADS"][()]
         NUM_EPOCHS = f["NUM_EPOCHS"][()]
         LEARNING_RATE = f["LEARNING_RATE"][()]
@@ -97,7 +96,7 @@ def load_results(DIR, NAME, INFO, VERSION, data_indices, val_data_indices,
            "FEATURES_RNN": FEATURES_RNN, "NUM_HEADS": NUM_HEADS,
            "NUM_EPOCHS": NUM_EPOCHS, "LEARNING_RATE": LEARNING_RATE,
            "MINIBATCH_SIZE": MINIBATCH_SIZE, "MAX_SYSTEM_SIZE": MAX_SYSTEM_SIZE,
-           "WITH_N": WITH_N, "train_losses": train_losses,
+           "train_losses": train_losses,
            "val_losses": val_losses, "FILES": FILES}
 
     theta, data, labels, val_theta, \
@@ -128,7 +127,7 @@ def init_ensemble_from_results(DIR, NAME, INFO, VERSION, KEY_SEEDS,
         model = RNNGATEntropyEstimator(doc["FEATURES_RNN"],
                     doc["FEATURES_GAT"], doc["FEATURES_RHO"],
                     num_samples=doc["NUM_BATCH_SAMPLES"],
-                    num_heads=doc["NUM_HEADS"], with_N=doc["WITH_N"],
+                    num_heads=doc["NUM_HEADS"],
                     avg_func=jnp.mean)
 
         with open(DIR + "general/results/" + NAME + INFO + _VERSION + "-params", "rb") as f:
