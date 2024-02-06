@@ -11,6 +11,8 @@ in the training distribution, we observe convergence where the baseline method f
 estimate the desired entanglement measure given a certain budget of samples. We also explore the
 model’s extrapolation capabilities, for which we find mixed results, depending on the application.
 
+Read more: https://arxiv.org/abs/2309.07556
+
 ## Code
 
 In order to run the code the project directory should have the following structure:
